@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Monitor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 30px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-size: 14px;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>📊 System Monitor Dashboard</h1>
+
+<div class="section">
+    <h2>🧑 Logged-in Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="section">
+    <h2>🖥️ System Stats</h2>
+    <table>
+        <tr><th>CPU Usage</th><th>RAM Usage</th><th>Disk Usage</th></tr>
+        <tr>
+            <td>{{ stats['cpu'] }}%</td>
+            <td>{{ stats['ram_used'] }} GB / {{ stats['ram_total'] }} GB</td>
+            <td>{{ stats['disk_used'] }} GB / {{ stats['disk_total'] }} GB</td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>🌐 Network Speed</h2>
+    <table>
+        <tr><th>Upload</th><th>Download</th></tr>
+        <tr>
+            <td>{{ net['upload_kbps'] }} KB/s</td>
+            <td>{{ net['download_kbps'] }} KB/s</td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>💽 Disk I/O</h2>
+    <table>
+        <tr><th>Read Speed</th><th>Write Speed</th></tr>
+        <tr>
+            <td>{{ disk_io['read_kbps'] }} KB/s</td>
+            <td>{{ disk_io['write_kbps'] }} KB/s</td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>⚙️ All Running Processes</h2>
+    <table>
+        <tr>
+            <th>PID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Memory (MB)</th>
+        </tr>
+        {% for proc in processes %}
+        <tr>
+            <td>{{ proc['pid'] }}</td>
+            <td>{{ proc['name'] }}</td>
+            <td>{{ proc['status'] }}</td>
+            <td>{{ proc['memory'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
