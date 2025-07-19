@@ -1,0 +1,68 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Flask instance folder
+instance/
+
+# Environment variables or secret files
+.env
+*.env
+
+# Python virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# VSCode or PyCharm specific
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store
+
+# Logs and temp files
+*.log
+*.tmp
+
+# System files
+Thumbs.db
+
+# Database or cache files (if generated)
+*.sqlite3
+*.db
+*.bak
+
+# Coverage, test, or profiling reports
+htmlcov/
+coverage.xml
+*.cover
+.cache
+nosetests.xml
+*.prof
+
+# Deployment artifacts
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Node modules (if you use frontend)
+node_modules/
+
+# Git
+.git/
+
+# Misc
+*.swp
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
